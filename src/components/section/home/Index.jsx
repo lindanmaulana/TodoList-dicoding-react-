@@ -5,7 +5,6 @@ const HomeTask = () => {
   return (
     <>
       <Create />
-
       <Task />
     </>
   );
