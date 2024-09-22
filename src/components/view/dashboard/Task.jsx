@@ -28,7 +28,6 @@ const Task = () => {
   return (
     <div className="lg:w-[60%]">
       <RunningTask handleDelete={handleDelete} handleArchived={handleArchived} selector={selector} />
-      {/* Completed task */}
       <ArchivedTask handleDelete={handleDelete} handleMoveIt={handleMoveIt} selector={selector} />
     </div>
   );

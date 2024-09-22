@@ -18,19 +18,19 @@ const SideBar = () => {
       id: 2,
       title: "All Task",
       icon: RiDashboardFill,
-      url: "all-task",
+      url: "/",
     },
     {
       id: 3,
       title: "Completed Task",
       icon: FaRegCheckCircle,
-      url: "complete-task",
+      url: "/",
     },
     {
       id: 4,
       title: "Add A Task",
       icon: IoIosAddCircleOutline,
-      url: "create-task",
+      url: "/",
     },
   ];
   return (
@@ -38,7 +38,7 @@ const SideBar = () => {
       <ul className="ps-5 pr-4 md:pr-0 flex flex-col gap-[30px]" >
         {dataSideBar?.map((values) => (
           <li key={values.id} className="">
-            <Link to={values.url} className="flex items-center gap-4 text-third text-sm sm:text-base">
+            <Link to={values.url} className="flex items-center gap-4 text-sm text-third sm:text-base">
               <values.icon />
               {values.title}
             </Link>

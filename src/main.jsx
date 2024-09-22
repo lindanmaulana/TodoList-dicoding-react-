@@ -9,10 +9,13 @@ import ErrorFallbackBoundary from "./routers/ErrorFallbackBoundary.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/*",
+    path: "/",
     element: <AplicationNotes />,
   },
-
+  {
+    path: "*",
+    element: <ErrorFallbackBoundary />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
