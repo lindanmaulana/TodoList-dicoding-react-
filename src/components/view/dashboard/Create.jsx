@@ -1,12 +1,11 @@
 import { FaEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { handleTask } from "../../../redux/slices/TaskFeatures";
-// import { useFormik } from "formik";
-// import * as yup from "yup"
+import Title from "../../elements/Title";
+
 const Create = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
-  console.log({ selector });
 
   const handleForm = (event) => {
     event.preventDefault();
@@ -15,12 +14,13 @@ const Create = () => {
 
     if (values.elements["task-title"].value.length > 0) {
       if (values.elements["task-title"].value.length < 50) {
+        const date = new Date().toISOString();
         const data = {
           id: task.length > 0 ? selector.home.task[task.length - 1].id + 1 : 1,
           title: event.target.elements["task-title"].value,
           body: event.target.elements["task-body"].value,
           archived: false,
-          createdAt: new Date().toISOString(),
+          createdAt: date,
         };
 
         dispatch(handleTask(data));
@@ -33,26 +33,13 @@ const Create = () => {
     }
   };
 
-  //   const formik = useFormik({
-  //     initialValues: {
-  //         "id": null,
-  //         "title": "",
-  //         "body": "",
-  //         "archived": false,
-  //         "createdAt": ""
-  //     },
-  //     onSubmit: () => {},
-  //     validationSchema: yup.object().shape({
-  //         id: yup.number().required(),
-  //         title: yup.string().required().
-  //     })
-  //   })
   return (
-    <form onSubmit={handleForm} className="lg:w-[40%]">
+    <form onSubmit={handleForm} className="lg:w-[30%]">
       <div className="grid w-full grid-cols-1 gap-8 mb-10">
+        <Title>Create Task</Title>
         <label htmlFor="task-title">
           <h3 className="mb-1 text-base text-primary">Task title</h3>
-          <div className="relative py-2 overflow-hidden border-2 rounded-lg border-primary">
+          <div className="relative py-2 overflow-hidden border-2 rounded-lg border-primary/30 focus-within:border-primary">
             <input
               type="text"
               placeholder="Task title"
@@ -65,14 +52,13 @@ const Create = () => {
         </label>
         <label htmlFor="task-body">
           <h3 className="mb-1 text-base text-primary">Task body</h3>
-          <div className="relative py-2 overflow-hidden border-2 rounded-lg border-primary">
-            <input
-              type="text"
-              placeholder="Task body"
+          <div className="relative overflow-hidden border-2 rounded-lg border-primary/30 focus-within:border-primary">
+            <textarea
               name="task-body"
               id="task-body"
-              className="w-full h-full bg-transparent outline-none ps-4 pe-5"
-            />
+              placeholder="Task body"
+              className="w-full h-[150px] bg-transparent outline-none ps-2"
+            ></textarea>
             <FaEdit className="absolute text-lg -translate-y-1/2 right-2 top-1/2 text-primary" />
           </div>
         </label>

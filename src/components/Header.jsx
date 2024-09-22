@@ -7,14 +7,17 @@ import { handleIsOpen } from "../redux/slices/SideBarFeatures";
 import { handleSearchTask } from "../redux/slices/TaskFeatures";
 
 const Header = () => {
+
   const dispatch = useDispatch();
   const handleSidebar = () => {
     dispatch(handleIsOpen());
   };
 
   const handleSearch = (e) => {
-    dispatch(handleSearchTask(e.target.value));
+    const values = e.target.value
+    dispatch(handleSearchTask(values));
   };
+
   return (
     <header className="fixed top-0 w-full px-5 bg-secondary lg:px-3">
       <nav className="container max-w-7xl">
@@ -26,8 +29,8 @@ const Header = () => {
           <div className="relative bg-third rounded-lg w-[286px]">
             <input
               type="text"
-              onChange={handleSearch}
               name="task-search"
+              onChange={handleSearch}
               className="w-full py-2 text-xs bg-transparent outline-none text-primary/40 pe-7 ps-2"
               placeholder="Write your project name"
             />

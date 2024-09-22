@@ -1,9 +1,10 @@
 import { useRoutes } from "react-router-dom";
-import HomeTask from "../components/section/home/Index";
-import CreateTask from "../components/section/taskCreate/Index";
-import CompleteTask from "../components/section/completeTask/Index";
-import AllTask from "../components/section/allTask/Index";
+
 import ErrorFallbackBoundary from "./ErrorFallbackBoundary";
+import HomeTask from "../components/view/dashboard/Index";
+import CreateTask from "../components/view/taskCreate/Index";
+import CompleteTask from "../components/view/completeTask/Index";
+import AllTask from "../components/view/allTask/Index";
 
 const TaskRouter = () => {
   const router = useRoutes([
@@ -13,20 +14,20 @@ const TaskRouter = () => {
     },
     {
       path: "create-task",
-      element: <CreateTask />
+      element: <CreateTask />,
     },
     {
       path: "complete-task",
-      element: <CompleteTask />
+      element: <CompleteTask />,
     },
     {
       path: "all-task",
-      element: <AllTask />
+      element: <AllTask />,
     },
     {
       path: "*",
-      element: <ErrorFallbackBoundary />
-    }
+      element: <ErrorFallbackBoundary />,
+    },
   ]);
   return router;
 };

@@ -1,8 +1,7 @@
-
 const CreateTask = () => {
   return (
-    <div className="flex justify-center items-center h-full px-4">
-      <h1 className="uppercase tracking-widest text-gray-500">
+    <div className="flex items-center justify-center h-full px-4">
+      <h1 className="tracking-widest text-gray-500 uppercase">
         Under construction! We are working hard to bring this feature to life.
         Stay tuned for updates!
       </h1>
