@@ -118,6 +118,10 @@ const TaskFeatures = createSlice({
         });
       }
     },
+
+    handleResetSearchTask: (state) => {
+      state.search = []
+    }
   },
 });
 export const {
@@ -126,5 +130,6 @@ export const {
   handleArchivedTask,
   handleMoveItTask,
   handleSearchTask,
+  handleResetSearchTask
 } = TaskFeatures.actions;
 export default TaskFeatures.reducer;

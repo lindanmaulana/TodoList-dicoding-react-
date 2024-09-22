@@ -4,7 +4,7 @@ import { MdDarkMode } from "react-icons/md";
 import { RxAvatar, RxHamburgerMenu } from "react-icons/rx";
 import { useDispatch } from "react-redux";
 import { handleIsOpen } from "../redux/slices/SideBarFeatures";
-import { handleSearchTask } from "../redux/slices/TaskFeatures";
+import { handleResetSearchTask, handleSearchTask } from "../redux/slices/TaskFeatures";
 
 const Header = () => {
 
@@ -15,7 +15,13 @@ const Header = () => {
 
   const handleSearch = (e) => {
     const values = e.target.value
-    dispatch(handleSearchTask(values));
+
+    if(values === "") {
+      dispatch(handleResetSearchTask())
+    } else {
+      dispatch(handleSearchTask(values));
+      
+    }
   };
 
   return (
