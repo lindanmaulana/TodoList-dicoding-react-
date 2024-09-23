@@ -1,26 +1,25 @@
-import { FaRegBell } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
-import { MdDarkMode } from "react-icons/md";
-import { RxAvatar, RxHamburgerMenu } from "react-icons/rx";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { useDispatch } from "react-redux";
 import { handleIsOpen } from "../redux/slices/SideBarFeatures";
-import { handleResetSearchTask, handleSearchTask } from "../redux/slices/TaskFeatures";
+import {
+  handleResetSearchTask,
+  handleSearchTask,
+} from "../redux/slices/TaskFeatures";
 
 const Header = () => {
-
   const dispatch = useDispatch();
   const handleSidebar = () => {
     dispatch(handleIsOpen());
   };
 
   const handleSearch = (e) => {
-    const values = e.target.value
+    const values = e.target.value;
 
-    if(values === "") {
-      dispatch(handleResetSearchTask())
+    if (values === "") {
+      dispatch(handleResetSearchTask());
     } else {
       dispatch(handleSearchTask(values));
-      
     }
   };
 
@@ -41,12 +40,6 @@ const Header = () => {
               placeholder="Write your project name"
             />
             <IoSearch className="absolute text-xl -translate-y-1/2 right-1 top-1/2 text-primary" />
-          </div>
-
-          <div className="flex items-center gap-6 text-3xl text-primary">
-            <FaRegBell />
-            <MdDarkMode />
-            <RxAvatar />
           </div>
         </div>
       </nav>

@@ -1,7 +1,4 @@
 import { AiOutlineDashboard } from "react-icons/ai";
-import { FaRegCheckCircle } from "react-icons/fa";
-import { IoIosAddCircleOutline } from "react-icons/io";
-import { RiDashboardFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -13,25 +10,7 @@ const SideBar = () => {
       title: "Dashboard",
       icon: AiOutlineDashboard,
       url: "/",
-    },
-    {
-      id: 2,
-      title: "All Task",
-      icon: RiDashboardFill,
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "Completed Task",
-      icon: FaRegCheckCircle,
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "Add A Task",
-      icon: IoIosAddCircleOutline,
-      url: "/",
-    },
+    }
   ];
   return (
     <div className={`${selector ? "w-5/12 sm:w-3/12 lg:w-2/12 opacity-100" : "w-[1px] opacity-0"} transition-all duration-1000 ease-in-out bg-primary py-10`}>
